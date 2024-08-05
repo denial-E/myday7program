@@ -51,7 +51,7 @@ const FormikEdit = ({id}) => {
             birth_day:'',
             short_bio:'',
        },
-        validationschema,
+        validationSchema:validationschema,
         onSubmit:async(values)=>{
             await axios.put(`https://66a7e08a53c13f22a3d1569d.mockapi.io/api/products/${id}`,values)
                 .then(res=>console.log(res.data))
@@ -91,10 +91,6 @@ const FormikEdit = ({id}) => {
                 <div className='text-danger'>{formik.errors.ISBN_number}</div>
                 <label>Publication_date:<input style={{display:'flex',flexDirection:'column',marginBottom:'15px',width:'180%'}} type='text' name='Publication_date' value={formik.values.Publication_date} onChange={formik.handleChange}/></label><br/>
                 <div className='text-danger'>{formik.errors.Publication_date}</div>
-                <button style={{marginLeft:'40%',marginTop:'5%',width:'100px'}} type='submit'>Update</button>
-            </form>
-            <div>
-            <form  style={{width:'400px',margin:'50px 50px 50px 50px',backgroundColor:'whitesmoke',borderRadius:'5px',justifyContent:'center',padding:'30px',marginLeft:'40%'}}   onSubmit={formik.handleSubmit}>
                 <h1 style={{textAlign:'center',color:'green'}}>Author Detail</h1>
                 <label>Author_name<input style={{display:'flex',flexDirection:'column',marginBottom:'15px',width:'180%'}} type='text' name='Author_name' value={formik.values.Author_name} onChange={formik.handleChange}/></label><br/>
                 <div className='text-danger'>{formik.errors.Author_name}</div>
@@ -106,6 +102,9 @@ const FormikEdit = ({id}) => {
                 <div className='text-danger'>{formik.errors.short_bio}</div>
                 <button style={{marginLeft:'40%',marginTop:'5%',width:'100px'}} type='submit'>Update</button>
             </form>
+            <div>
+           
+           
             </div>
         </div>
         
